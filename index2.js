@@ -16,13 +16,14 @@ app.get('/', (req,res) => { //this is  a route with the callback funtion (req, r
 });
 
 app.get('/api/courses', (req,res) => { 
-    res.send(courses);
-  });
+  res.send(courses);
+});
 
 app.post('/api/courses', (req, res) => {
+
   const course = {
-    id: courses.length + 1, //id is automatically incremented by 1
-    name: req.body.name    //name is read from the body of the request (req will have object with name property)
+      id: courses.length + 1, //id is automatically incremented by 1
+      name: req.body.name    //name is read from the body of the request (req will have object with name property)
   };
   courses.push(course);    // add the course to the courses array
   res.send(course);
