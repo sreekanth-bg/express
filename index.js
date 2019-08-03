@@ -1,3 +1,5 @@
+// routes that respond to HTTP GET requests
+
 const express = require('express'); // express module loaded and const express is assignd which returns a function
 const app = express(); // the function returns an object which is stored in the const app whichich will have CURD http methods
 
@@ -25,7 +27,7 @@ app.get('/', (req,res) => { //this is  a route with the callback funtion (req, r
 
 app.get('/api/courses/:id', (req,res) => {
   const course = courses.find(c => c.id === parseInt(req.params.id)); // const course stores the result of the array function which has the logic to find id which matches the request
-  if (!course) res.status(404).send('The course with the given ID was not found');
+  if (!course) res.status(404).send('The course with the given ID was not found');     // the status code 404 can be found in the browser-right click anywhere in the page-inspect-Network tab-Refresh(ctrl+r)-status
   res.send(course);
 });
 
