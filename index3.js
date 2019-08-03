@@ -25,7 +25,7 @@ app.post('/api/courses', (req, res) => {
         name: Joi.string().min(3).required()
     };
 
-    const result = Joi.validate(req.body.schema);
+    const result = Joi.validate(req.body, schema);
     console.log(result);
 
     if (result.error) {
