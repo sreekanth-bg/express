@@ -23,7 +23,7 @@ app.get('/', (req,res) => { //this is  a route with the callback funtion (req, r
 //  res.send(req.query);                        // query parameters (after ? ex sortBy=name va be read using req.query)
 //});
 
-app.get('/api/courses', (req,res) => {
+app.get('/api/courses/:id', (req,res) => {
   const course = courses.find(c => c.id === parseInt(req.params.id)); // const course stores the result of the array function which has the logic to find id which matches the request
   if (!course) res.status(404).send('The course with the given ID was not found');
   res.send(course);
