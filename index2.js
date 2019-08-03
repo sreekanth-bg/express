@@ -20,7 +20,11 @@ app.get('/api/courses', (req,res) => {
 });
 
 app.post('/api/courses', (req, res) => {
-
+    if (!req.body.name || req.body.name < 3) {
+        // input validation of name property in body ogject. if no name or less than 3 chars status 400 is returned
+        res.status(400).send('Name is required and should be min 3 chars');
+        return;
+    }
   const course = {
       id: courses.length + 1, //id is automatically incremented by 1
       name: req.body.name    //name is read from the body of the request (req will have object with name property)
