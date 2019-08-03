@@ -13,6 +13,10 @@ app.get('/', (req,res) => { //this is  a route with the callback funtion (req, r
   res.send('hello world');
 });
 
+app.get('/api/courses', (req,res) => { //route to list all available courses
+  res.send(courses);
+});
+
 //app.get('/api/courses/:id', (req,res) => {
 //  res.send(req.params.id);                     // the value of parameter (route parameters) can be read by using req.param
 //});
