@@ -21,7 +21,7 @@ app.get('/api/courses', (req,res) => {
 
 app.post('/api/courses', (req, res) => {
   const course = {
-    id: courses.lenth + 1, //id is automatically incremented by 1
+    id: courses.length + 1, //id is automatically incremented by 1
     name: req.body.name    //name is read from the body of the request (req will have object with name property)
   };
   courses.push(course);    // add the course to the courses array
