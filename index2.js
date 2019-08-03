@@ -1,7 +1,9 @@
-// routes that respond to HTTP GET requests
+// routes that respond to HTTP POST requests. Use API client like POSTMAN
 
 const express = require('express'); // express module loaded and const express is assignd which returns a function
 const app = express(); // the function returns an object which is stored in the const app whichich will have CURD http methods
+
+app.use(express.json()); // enable parsing of JSON objects in the body of the requests
 
 const courses = [
   { id:1, name: 'course1' },
@@ -16,6 +18,15 @@ app.get('/', (req,res) => { //this is  a route with the callback funtion (req, r
 app.get('/api/courses', (req,res) => { 
     res.send(courses);
   });
+
+app.post('/api/courses', (req, res) => {
+  const course = {
+    id: courses.lenth + 1, //id is automatically incremented by 1
+    name: req.body.name    //name is read from the body of the request (req will have object with name property)
+  };
+  courses.push(course);    // add the course to the courses array
+  res.send(course);
+});
 
 //app.listen(3000);
 //app.listen(3000, () => console.log('Listening on port 3000...'));
