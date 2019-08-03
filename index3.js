@@ -26,10 +26,10 @@ app.post('/api/courses', (req, res) => {
     };
 
     const result = Joi.validate(req.body, schema);
-    console.log(result);
-
+    //console.log(result);
     if (result.error) {
-        res.status(400).send(result.error);
+        res.status(400).send(result.error); // send all error details of all objects
+        res.status(400).send(result.error.details[0].message); //send only message property of details element
         return;
     }
   const course = {
