@@ -28,9 +28,8 @@ app.post('/api/courses', (req, res) => {
     const result = Joi.validate(req.body.schema);
     console.log(result);
 
-    if (!req.body.name || req.body.name < 3) {
-        // input validation of name property in body ogject. if no name or less than 3 chars status 400 is returned
-        res.status(400).send('Name is required and should be min 3 chars');
+    if (result.error) {
+        res.status(400).send(result.error);
         return;
     }
   const course = {
