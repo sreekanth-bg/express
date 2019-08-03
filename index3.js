@@ -12,7 +12,7 @@ const courses = [
   { id:3, name: 'course3' },
 ];
 
-app.get('/', (req,res) => { //this is  a route with the callback funtion (req, res)) or route angular
+app.get('/', (req,res) => { //this is  a route with the callback funtion (req, res) or route angular
   res.send('hello world');
 });
 
